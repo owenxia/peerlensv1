@@ -8,7 +8,19 @@
 </head>
 <body>
 
-<p>MENU: <%= link_to 'User\'s Annotations', root_path %> | <%= link_to 'External Page to Annotate', new_annotation_path %></p>
+<p class="notice"><%= notice %></p>
+<p class="alert"><%= alert %></p>
+
+<p>MENU: 
+	<%= link_to 'User\'s Annotations', root_path %> | 
+	<%= link_to 'External Page to Annotate', new_annotation_path %> | 
+	<%= link_to 'Top Content', top_path %> |
+	<% if user_signed_in? %> 
+		<%= link_to 'Log out', destroy_user_session_path, method: :delete %>
+	<% else %>
+		<%= link_to 'Log in', new_user_session_path %> 
+	<% end %>
+<p>
 
 
 <%= yield %>
