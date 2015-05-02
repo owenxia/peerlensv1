@@ -1,0 +1,17 @@
+<h1>This is the external page on which a user creates an annotation</h1>
+
+
+<%= form_for :annotation, url: annotations_path do |f| %>
+	<%= f.label :quote %><br>
+	<%= f.text_field :quote %><br>
+
+	<br>
+
+	<%= f.label :note %><br>
+	<%= f.text_field :note %><br>
+
+	<br>
+
+	<%= f.submit %>
+
+<% end %>
