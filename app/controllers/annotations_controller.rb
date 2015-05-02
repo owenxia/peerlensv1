@@ -4,6 +4,7 @@ class AnnotationsController < ApplicationController
 	end
 
 	def new
+		@annotation = Annotation.new
 	end
 
 	def show
@@ -13,17 +14,33 @@ class AnnotationsController < ApplicationController
 
 	def create
 		@annotation = Annotation.new(annotation_params)
-		@annotation.save
-		redirect_to @annotation
+		if @annotation.save
+			redirect_to @annotation
+		else
+			render 'new'
+		end
 	end
 
 	def edit
+		@annotation = Annotation.find(params[:id])
+
 	end
 
 	def update
+		@annotation = Annotation.find(params[:id])
+
+		if @annotation.update(params[:annotation].permit(:quote, :note))
+			redirect_to @annotation
+		else
+			render 'edit'	
+		end
 	end
 
 	def destroy
+		@annotation = Annotation.find(params[:id])
+		@annotation.destroy
+
+		redirect_to annotations_path
 	end
 
 

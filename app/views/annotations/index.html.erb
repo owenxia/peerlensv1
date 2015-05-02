@@ -2,8 +2,9 @@
 
 <% @annotations.each do |annotation| %>
 	<div class="annotation_wrapper">
-		<p class="quote"><%= link_to annotation.quote, annotation %></p>
-		<p class="note"><%= annotation.note %></p>
+		<p class="quote"><strong>Quote:</strong><%= annotation.quote %></p>
+		<p class="note"><strong>Note:</strong><%= annotation.note %></p>
+		<p> <%= link_to 'Show Details', annotation %></p>
 	</div>
 
 <% end %>

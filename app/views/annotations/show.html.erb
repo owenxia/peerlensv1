@@ -1,8 +1,9 @@
 <h1>This is the page where a user's single annotations is shown</h1>
 
-<p>Quote: <%= @annotation.quote %></p>
-<p>Note: <%= @annotation.note %></p>
+<p><strong>Quote:</strong> <%= @annotation.quote %></p>
+<p><strong>Note:</strong> <%= @annotation.note %></p>
 <p>Created <%= time_ago_in_words(@annotation.created_at) %> ago</p>
+<p><%= link_to 'Edit', edit_annotation_path %> | <%= link_to 'Delete', annotation_path(@annotation), method: :delete, data: { confirm: 'Are you sure?' } %></p>
 
 
 
