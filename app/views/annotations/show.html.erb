@@ -4,6 +4,11 @@
 <p><strong>Note:</strong> <%= @annotation.note %></p>
 <p>Created <%= time_ago_in_words(@annotation.created_at) %> ago</p>
 <p><%= link_to 'Edit', edit_annotation_path %> | <%= link_to 'Delete', annotation_path(@annotation), method: :delete, data: { confirm: 'Are you sure?' } %></p>
-
+<hr>
+<p><%= @annotation.comments.count %> comments</p>
+<%= render @annotation.comments %>
+<hr>
+<p>Add a comment:</p>
+<%= render "comments/form" %>
 
 

@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
-  resources :annotations
+  resources :annotations do
+    resources :comments
+  end
+  
   root "annotations#index"
 
 end

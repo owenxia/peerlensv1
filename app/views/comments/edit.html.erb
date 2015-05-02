@@ -1,0 +1,10 @@
+<h1>Edit Comment</h1>
+<%= form_for([@annotation, @comment]) do |f| %>
+	<%= f.label :name %><br>
+	<%= f.text_field :name %><br>
+
+	<%= f.label :body %><br>
+	<%= f.text_area :body %><br>
+
+	<%= f.submit %>
+<% end %>
