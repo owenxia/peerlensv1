@@ -1,17 +1,6 @@
-<%= form_for @annotation do |f| %>
-	<%= f.label :quote %><br>
-	<%= f.text_area :quote %><br>
-
-	<br>
-
-	<%= f.label :note %><br>
-	<%= f.text_area :note %><br>
-
-	<br>
-
-	<%= f.collection_select(:notebook_id, current_user.notebooks.all, :id, :name) %><br>
-
-	<br>
-	
-	<%= f.submit %>
+<%= simple_form_for @annotation do |f| %>
+	<%= f.input :quote, label: '(Quote passed from page): ' %>
+	<%= f.input :note, label: 'Note: ', placeholder: 'Enter your annotation here.' %>
+	<%= f.input :notebook_id, collection: current_user.notebooks.all, selected: current_user.notebooks.first %>
+	<%= f.button :submit %>
 <% end %>

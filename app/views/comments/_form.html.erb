@@ -1,9 +1,5 @@
-<%= form_for([@annotation, @annotation.comments.build]) do |f| %>
-	<%= f.label :name %><br>
-	<%= f.text_field :name %><br>
-
-	<%= f.label :body %><br>
-	<%= f.text_area :body %><br>
-
-	<%= f.submit %>
+<%= simple_form_for([@annotation, @annotation.comments.new]) do |f| %>
+	<%= f.input :name %><br>
+	<%= f.input :body %><br>
+	<%= f.button :submit %><br>
 <% end %>

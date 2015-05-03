@@ -1,14 +1,5 @@
-<%= form_for @notebook do |f|%>
-	<%= f.label :name %><br>
-	<%= f.text_field :name %><br>
-	
-	<br>
-
-	<%= f.label :description %><br>
-	<%= f.text_area :description %><br>
-
-	<br>
-
-	<%= f.submit %><br>
-
+<%= simple_form_for(@notebook) do |f| %>
+	<%= f.input :name %><br>
+	<%= f.input :description %><br>
+	<%= f.button :submit %><br>
 <% end %>

@@ -43,5 +43,8 @@ group :development, :test do
   gem 'spring'
 
   gem 'devise', '~> 3.4.1'
+  gem 'annotate', '~> 2.6.8'
+  gem 'simple_form', '~> 3.1.0'
+  gem 'better_errors', '~> 2.1.1'
 end
 
