@@ -1,10 +1,10 @@
 class CommentsController < ApplicationController
 	before_action :authenticate_user!
-	load_and_authorize_resource
+	load_and_authorize_resource param_method: :comment_params
 
 	def create
 		@annotation = Annotation.all.find(params[:annotation_id])
-		@comment = @annotation.comments.create(params[:comment].permit(:name, :body))
+		@comment = @annotation.comments.create(comment_params)
 		@comment.user_id = current_user.id
 		redirect_to annotation_path(@annotation)
 	end
@@ -14,7 +14,7 @@ class CommentsController < ApplicationController
 	end
 
 	def update
-		if @comment.update(params[:comment].permit(:name, :body))
+		if @comment.update(comment_params)
 			redirect_to @annotation
 		else
 			render 'edit'
@@ -23,8 +23,13 @@ class CommentsController < ApplicationController
 
 	def destroy
 		@comment.destroy
-
 		redirect_to annotation_path(@annotation)
 	end
+
+
+	private
+		def comment_params
+			params.require(:comment).permit(:name, :body)
+		end
 
 end

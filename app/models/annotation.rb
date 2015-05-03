@@ -17,7 +17,7 @@
 
 class Annotation < ActiveRecord::Base
 	belongs_to :user
-	belongs_to :notebook
+	belongs_to :notebook, dependent: :destroy
 	has_many :comments, dependent: :destroy
 	validates :note, presence: true
 	validates :notebook_id, presence: true

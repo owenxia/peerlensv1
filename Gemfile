@@ -47,5 +47,6 @@ group :development, :test do
   gem 'simple_form', '~> 3.1.0'
   gem 'better_errors', '~> 2.1.1'
   gem 'cancan', '~> 1.6.10'
+  gem 'cancancan', '~> 1.10'
 end
 
