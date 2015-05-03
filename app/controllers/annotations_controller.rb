@@ -1,21 +1,30 @@
 class AnnotationsController < ApplicationController
-	before_action :authenticate_user!, except: [:index, :show]
+	before_action :authenticate_user!, except: [:index, :show] 
+	before_action :set_annotation, only: [:edit, :update, :destroy]
 
 	def index
-		@annotations = Annotation.all.order ('created_at DESC')
+		if user_signed_in?
+			@annotations = current_user.annotations.order ('created_at DESC')
+		else
+			@annotations = Annotation.all.order ('created_at DESC')
+		end
 	end
 
 	def new
-		@annotation = Annotation.new
+		@annotation = current_user.annotations.build
 	end
 
 	def show
-		@annotation = Annotation.find(params[:id])
+		if user_signed_in?
+			@annotation = current_user.annotations.find(params[:id])
+		else
+			@annotation = Annotation.all.find(params[:id])
+		end
 
 	end
 
 	def create
-		@annotation = Annotation.new(annotation_params)
+		@annotation = current_user.annotations.build(annotation_params)
 		if @annotation.save
 			redirect_to @annotation
 		else
@@ -24,14 +33,11 @@ class AnnotationsController < ApplicationController
 	end
 
 	def edit
-		@annotation = Annotation.find(params[:id])
 
 	end
 
 	def update
-		@annotation = Annotation.find(params[:id])
-
-		if @annotation.update(params[:annotation].permit(:quote, :note))
+		if @annotation.update(annotation_params)
 			redirect_to @annotation
 		else
 			render 'edit'	
@@ -39,7 +45,6 @@ class AnnotationsController < ApplicationController
 	end
 
 	def destroy
-		@annotation = Annotation.find(params[:id])
 		@annotation.destroy
 
 		redirect_to annotations_path
@@ -49,5 +54,11 @@ class AnnotationsController < ApplicationController
 	private
 	def annotation_params
 		params.require(:annotation).permit(:quote, :note)
+	end
+
+	def set_annotation
+		@annotation = current_user.annotations.find(params[:id])
+
+		
 	end
 end

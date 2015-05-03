@@ -3,7 +3,10 @@
 <p><strong>Quote:</strong> <%= @annotation.quote %></p>
 <p><strong>Note:</strong> <%= @annotation.note %></p>
 <p>Created <%= time_ago_in_words(@annotation.created_at) %> ago</p>
-<p><%= link_to 'Edit', edit_annotation_path %> | <%= link_to 'Delete', annotation_path(@annotation), method: :delete, data: { confirm: 'Are you sure?' } %></p>
+<p> 
+	<% if user_signed_in? %> 
+		<%= link_to 'Edit', edit_annotation_path %> | <%= link_to 'Delete', annotation_path(@annotation), method: :delete, data: { confirm: 'Are you sure?' } %></p>
+	<% end %>
 <hr>
 <p><%= @annotation.comments.count %> comments</p>
 <%= render @annotation.comments %>

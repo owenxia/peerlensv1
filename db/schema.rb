@@ -11,13 +11,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150502223909) do
+ActiveRecord::Schema.define(version: 20150502234041) do
 
   create_table "annotations", force: :cascade do |t|
     t.text     "quote"
     t.text     "note"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer  "user_id"
   end
 
   create_table "comments", force: :cascade do |t|
@@ -26,6 +27,7 @@ ActiveRecord::Schema.define(version: 20150502223909) do
     t.integer  "annotation_id"
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false
+    t.integer  "user_id"
   end
 
   add_index "comments", ["annotation_id"], name: "index_comments_on_annotation_id"
