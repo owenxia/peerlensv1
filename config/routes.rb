@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   resources :notebooks
 
   get '/top', to: 'pages#top'
+  get '/notauthorized', to: 'pages#notauthorized'
   
   root to: "annotations#index"
 

@@ -5,9 +5,13 @@
 <p><strong>Notebook:</strong> <%= @annotation.notebook.name %></p>
 <p>Created <%= time_ago_in_words(@annotation.created_at) %> ago</p>
 <p> 
-	<% if user_signed_in? %> 
-		<%= link_to 'Edit', edit_annotation_path %> | <%= link_to 'Delete', annotation_path(@annotation), method: :delete, data: { confirm: 'Are you sure?' } %></p>
+	<% if can? :update, @annotation %> 
+		<%= link_to 'Edit', edit_annotation_path %> 
 	<% end %>
+	<% if can? :destroy, @annotation %>
+		<%= link_to 'Delete', annotation_path(@annotation), method: :delete, data: { confirm: 'Are you sure?' } %>
+	<% end %>
+</p>
 <hr>
 <p><%= @annotation.comments.count %> comments</p>
 <%= render @annotation.comments %>

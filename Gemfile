@@ -46,5 +46,6 @@ group :development, :test do
   gem 'annotate', '~> 2.6.8'
   gem 'simple_form', '~> 3.1.0'
   gem 'better_errors', '~> 2.1.1'
+  gem 'cancan', '~> 1.6.10'
 end
 

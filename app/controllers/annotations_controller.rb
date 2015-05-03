@@ -1,9 +1,10 @@
 class AnnotationsController < ApplicationController
 	before_action :authenticate_user!
-	before_action :set_annotation, only: [:show, :edit, :update, :destroy]
+
+	load_and_authorize_resource
 
 	def index
-		@annotations = current_user.annotations.order('created_at DESC')
+		@annotations = Annotation.all.order('created_at DESC')
 
 	end
 
@@ -12,6 +13,7 @@ class AnnotationsController < ApplicationController
 	end
 
 	def show
+		@annotation = Annotation.all.find(params[:id])
 
 	end
 
@@ -47,7 +49,4 @@ class AnnotationsController < ApplicationController
 		params.require(:annotation).permit(:quote, :note, :notebook_id)
 	end
 
-	def set_annotation
-		@annotation = current_user.annotations.find(params[:id])
-	end
 end
