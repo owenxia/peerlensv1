@@ -11,15 +11,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150503095747) do
+ActiveRecord::Schema.define(version: 20150503105710) do
 
   create_table "annotations", force: :cascade do |t|
     t.text     "quote"
     t.text     "note"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
     t.integer  "user_id"
+    t.integer  "notebook_id"
   end
+
+  add_index "annotations", ["notebook_id"], name: "index_annotations_on_notebook_id"
 
   create_table "comments", force: :cascade do |t|
     t.string   "name"

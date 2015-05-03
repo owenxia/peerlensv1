@@ -2,6 +2,7 @@
 
 <p><strong>Quote:</strong> <%= @annotation.quote %></p>
 <p><strong>Note:</strong> <%= @annotation.note %></p>
+<p><strong>Notebook:</strong> <%= @annotation.notebook.name %></p>
 <p>Created <%= time_ago_in_words(@annotation.created_at) %> ago</p>
 <p> 
 	<% if user_signed_in? %> 

@@ -44,7 +44,7 @@ class AnnotationsController < ApplicationController
 
 	private
 	def annotation_params
-		params.require(:annotation).permit(:quote, :note)
+		params.require(:annotation).permit(:quote, :note, :notebook_id)
 	end
 
 	def set_annotation

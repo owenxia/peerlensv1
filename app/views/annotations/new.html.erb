@@ -1,4 +1,10 @@
 <h1>This is the external page on which a user creates an annotation</h1>
 <p>A selected (highlighted) sentence is passed into the backend as "quote", on which user annotates:</p>
 
+<ul>
+	<% @annotation.errors.full_messages.each do |msg| %>
+	<li><strong> <%= msg %></strong></li>
+	<% end %>
+</ul>
+
 <%= render 'form' %>

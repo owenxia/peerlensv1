@@ -9,5 +9,9 @@
 
 	<br>
 
+	<%= f.collection_select(:notebook_id, current_user.notebooks.all, :id, :name) %><br>
+
+	<br>
+	
 	<%= f.submit %>
 <% end %>
