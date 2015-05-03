@@ -3,7 +3,7 @@
 <% @annotations.each do |annotation| %>
 	<div class="annotation_wrapper">
 		<p><strong>Quote: </strong><%= annotation.quote %></p>
-		<p><strong>Note: </strong><%= annotation.note %></p>
+		<p><strong>Note: </strong><%= linkify_hashtags(annotation.note) %></p>
 		<p><strong>Notebook: </strong> <%= annotation.notebook.name %> </p>
 		<p> <%= link_to 'Show Details', annotation %></p>
 	</div>

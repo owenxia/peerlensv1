@@ -50,6 +50,7 @@ group :development, :test do
   gem 'cancancan', '~> 1.10'
   gem 'acts_as_votable', '~> 0.10.0'
   gem 'acts_as_follower', '~> 0.2.1'
-  
+  #gem 'acts-as-taggable-on', '~> 3.5.0'
+  gem 'simple_hashtag', '~> 0.1.9'
 end
 

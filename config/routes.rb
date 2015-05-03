@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get "hashtags/:hashtag",   to: "hashtags#show",      as: :hashtag
+  get "hashtags",            to: "hashtags#index",     as: :hashtags
   devise_for :users
   
   resources :annotations do
@@ -21,6 +23,6 @@ Rails.application.routes.draw do
   get '/top', to: 'pages#top'
   get '/notauthorized', to: 'pages#notauthorized'
   
-  root to: "annotations#index"
+  root to: "pages#top"
 
 end

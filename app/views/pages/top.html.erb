@@ -1,1 +1,5 @@
-<h1>This page is a static page that displays top content from Peerlens. We edit this page manually.</h1>
+<h1>This page is the home page. </h1>
+<p>It is a static page that displays top content from Peerlens. We edit this page manually.</p>
+
+
+<%= current_user.notebooks.create(name: "default notebook") if user_signed_in? && current_user.notebooks.empty? %>

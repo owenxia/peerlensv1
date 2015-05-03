@@ -1,0 +1,9 @@
+<h1>Content containing the hashtag "<%= params[:hashtag] %>":</h1>
+
+<% @hashtagged.each do |h| %>
+	<% if h.has_attribute?(:note) %>
+		<p><strong>Annotation: </strong> <%= h.note %></p> 
+	<% else %>
+		<p><strong>Comment: </strong><%= h.body %></p>
+	<% end %>
+<% end %>

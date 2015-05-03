@@ -1,7 +1,7 @@
 <h1>This is the page where a user's single annotations is shown</h1>
 
 <p><strong>Quote:</strong> <%= @annotation.quote %></p>
-<p><strong>Note:</strong> <%= @annotation.note %></p>
+<p><strong>Note:</strong> <%= linkify_hashtags(@annotation.note) %></p>
 <p><strong>Notebook:</strong> <%= @annotation.notebook.name %></p>
 <p>Created <%= time_ago_in_words(@annotation.created_at) %> ago</p>
 <p> 

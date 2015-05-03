@@ -23,4 +23,7 @@ class Annotation < ActiveRecord::Base
 	has_many :comments, dependent: :destroy
 	validates :note, presence: true
 	validates :notebook_id, presence: true
+
+	include SimpleHashtag::Hashtaggable
+	#hashtaggable_attribute :note
 end
