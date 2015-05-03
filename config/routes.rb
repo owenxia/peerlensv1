@@ -3,6 +3,10 @@ Rails.application.routes.draw do
   
   resources :annotations do
     resources :comments
+    member do
+    	put "like", to: "annotations#upvote"
+    	put "dislike", to: "annotations#downvote"
+    end
   end
 
   resources :notebooks

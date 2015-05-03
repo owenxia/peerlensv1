@@ -16,6 +16,8 @@
 #
 
 class Annotation < ActiveRecord::Base
+	acts_as_votable
+
 	belongs_to :user
 	belongs_to :notebook, dependent: :destroy
 	has_many :comments, dependent: :destroy

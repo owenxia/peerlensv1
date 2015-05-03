@@ -6,7 +6,7 @@ class CommentsController < ApplicationController
 	before_action :set_annotation, only: [:edit, :update, :destroy]
 	
 	def create
-		@annotation = Annotation.all.find(params[:annotation_id])
+		@annotation = Annotation.find(params[:annotation_id])
 		@comment = @annotation.comments.create(comment_params)
 		@comment.user_id = current_user.id
 		@comment.save
@@ -37,7 +37,7 @@ class CommentsController < ApplicationController
 		end
 
 		def set_annotation
-		 	@annotation = Annotation.all.find(params[:annotation_id])
+		 	@annotation = Annotation.find(params[:annotation_id])
 		end
 
 end

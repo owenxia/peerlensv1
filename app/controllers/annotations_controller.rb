@@ -1,9 +1,9 @@
 class AnnotationsController < ApplicationController
 	before_action :authenticate_user!
-	load_and_authorize_resource
+	load_and_authorize_resource except: [:upvote, :downvote]
 
 	def index
-		@annotations = Annotation.all.order('created_at DESC')
+		@annotations = Annotation.order('created_at DESC')
 
 	end
 
@@ -12,7 +12,7 @@ class AnnotationsController < ApplicationController
 	end
 
 	def show
-		@annotation = Annotation.all.find(params[:id])
+		@annotation = Annotation.find(params[:id])
 
 	end
 
@@ -42,6 +42,17 @@ class AnnotationsController < ApplicationController
 		redirect_to annotations_path
 	end
 
+	def upvote
+		@annotation = Annotation.find(params[:id])
+		@annotation.upvote_by current_user
+		redirect_to :back
+	end
+
+	def downvote
+		@annotation = Annotation.find(params[:id])
+		@annotation.downvote_by current_user
+		redirect_to :back
+	end
 
 	private
 	def annotation_params

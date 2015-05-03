@@ -5,6 +5,9 @@
 <p><strong>Notebook:</strong> <%= @annotation.notebook.name %></p>
 <p>Created <%= time_ago_in_words(@annotation.created_at) %> ago</p>
 <p> 
+	<%= link_to 'Like', like_annotation_path(@annotation), method: :put %> 
+	<%= link_to 'Dislike', dislike_annotation_path(@annotation), method: :put %> |
+	Total likes: <%= @annotation.get_upvotes.size %> | 
 	<% if can? :update, @annotation %> 
 		<%= link_to 'Edit', edit_annotation_path %> 
 	<% end %>
