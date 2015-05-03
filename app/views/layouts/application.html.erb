@@ -14,7 +14,7 @@
 
 <p>
 	<% if user_signed_in? %> 
-		YOUR EMAIL: <%= current_user.email %>
+		YOU: <%= current_user.email %>
 	<% else %>
 		You're not signed in.
 	<% end %>
@@ -26,8 +26,11 @@
 	<%= link_to 'User\'s Notebooks', notebooks_path %> |
 	<%= link_to 'Create a Notebook', new_notebook_path %> |
 	<%= link_to 'Top Content', top_path %> |
+	<%= link_to 'All Users', users_path %> |
 	<% if user_signed_in? %> 
+		<%= link_to 'Edit profile', edit_user_registration_path %> | 
 		<%= link_to 'Log out', destroy_user_session_path, method: :delete %>
+
 	<% else %>
 		<%= link_to 'Log in', new_user_session_path %> 
 	<% end %>

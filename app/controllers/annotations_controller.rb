@@ -3,7 +3,7 @@ class AnnotationsController < ApplicationController
 	load_and_authorize_resource except: [:upvote, :downvote]
 
 	def index
-		@annotations = Annotation.order('created_at DESC')
+		@annotations = Annotation.all.order('created_at DESC')
 
 	end
 

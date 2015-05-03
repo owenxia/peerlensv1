@@ -49,5 +49,7 @@ group :development, :test do
   gem 'cancan', '~> 1.6.10'
   gem 'cancancan', '~> 1.10'
   gem 'acts_as_votable', '~> 0.10.0'
+  gem 'acts_as_follower', '~> 0.2.1'
+  
 end
 

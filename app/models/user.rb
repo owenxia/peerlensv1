@@ -30,4 +30,7 @@ class User < ActiveRecord::Base
   has_many :annotations, dependent: :destroy
   has_many :notebooks, dependent: :destroy
   has_many :comments, dependent: :destroy
+
+  acts_as_followable
+  acts_as_follower
 end

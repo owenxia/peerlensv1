@@ -4,7 +4,7 @@ class NotebooksController < ApplicationController
 	load_and_authorize_resource
 
 	def index
-		@notebooks = Notebook.order('CREATED_AT DESC')
+		@notebooks = Notebook.all.order('CREATED_AT DESC')
 	end
 
 	def show

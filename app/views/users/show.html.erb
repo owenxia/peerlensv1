@@ -1,0 +1,33 @@
+<h1>User Details</h1>
+
+<p><%= @user_followable.email %></p>
+
+<p>
+  Followed by: <br>
+  <ul>
+  <% @user_followable.followers.each do |user| %>
+    <li><%= user.email %></li>
+  <% end %>
+  </ul>
+</p>
+
+
+<p>
+	<% if @user_followable.followers.include?(@user_follower) %>
+		<%= link_to 'Unfollow', unfollow_user_path(@user_followable) %>
+	<% else %>
+		<%= link_to 'Follow', follow_user_path(@user_followable) %>
+	<% end %>
+</p>
+
+<hr>
+
+<p>
+  Following: <br>
+  <ul>
+  <% @user_followable.all_following.each do |user| %>
+    <li><%= user.email %></li>
+  <% end %>
+  </ul>
+</p>
+

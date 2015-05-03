@@ -9,6 +9,13 @@ Rails.application.routes.draw do
     end
   end
 
+  resources :users do
+    member do
+      get :follow
+      get :unfollow
+    end
+  end
+
   resources :notebooks
 
   get '/top', to: 'pages#top'
