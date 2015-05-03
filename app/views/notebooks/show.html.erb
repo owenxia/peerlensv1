@@ -1,0 +1,9 @@
+<h1>Notebooks</h1>
+
+<p><strong>Notebook Name:</strong> <%= @notebook.name %></p>
+<p><strong>Description:</strong> <%= @notebook.description %></p>
+<p>Created <%= time_ago_in_words(@notebook.created_at) %> ago</p>
+<p> 
+	<% if user_signed_in? %> 
+		<%= link_to 'Edit', edit_notebook_path %> | <%= link_to 'Delete', notebook_path(@notebook), method: :delete, data: { confirm: 'Are you sure?' } %></p>
+	<% end %>

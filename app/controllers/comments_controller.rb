@@ -1,7 +1,8 @@
 class CommentsController < ApplicationController
 	before_action :authenticate_user!
 	before_action :set_annotation_comment, only: [:edit, :update, :destroy]
-def create
+	
+	def create
 		@annotation = current_user.annotations.find(params[:annotation_id])
 		@comment = @annotation.comments.create(params[:comment].permit(:name, :body))
 		@comment.user_id = current_user.id

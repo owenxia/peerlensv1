@@ -1,0 +1,9 @@
+<h1>User's Notebooks</h1>
+
+<% @notebooks.each do |notebook| %>
+	<div class="notebook_wrapper">
+		<p><strong>Notebook Name:</strong> <%= notebook.name %></p>
+		<p><strong>Notebook Description:</strong><%= notebook.description %></p>
+		<p> <%= link_to 'Show Details', notebook %> </p>
+	</div>
+<% end %>
