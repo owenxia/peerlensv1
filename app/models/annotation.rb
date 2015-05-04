@@ -30,5 +30,5 @@ class Annotation < ActiveRecord::Base
 	validates :notebook_id, presence: true
 
 	include SimpleHashtag::Hashtaggable
-	#hashtaggable_attribute :note
+	hashtaggable_attribute :note
 end
