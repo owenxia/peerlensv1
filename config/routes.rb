@@ -25,4 +25,6 @@ Rails.application.routes.draw do
   
   root to: "pages#top"
 
+  match 'auth/:provider/callback', to: 'sessions#create', via: [:get]
+
 end
