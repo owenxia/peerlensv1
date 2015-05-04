@@ -56,6 +56,7 @@ group :development, :test do
   gem 'sunspot_solr', '~> 2.2.0'
   gem 'omniauth-twitter', '~> 1.2.0'
   gem 'activeadmin', github: 'activeadmin'
+  gem 'grape', '~> 0.9.0'
 
 end
 
