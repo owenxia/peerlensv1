@@ -53,13 +53,14 @@ gem 'sunspot_solr', '~> 2.2.0'
 gem 'omniauth-twitter', '~> 1.2.0'
 gem 'activeadmin', github: 'activeadmin'
 gem 'grape', '~> 0.9.0'
+#gem 'pg'
+gem 'bootstrap-sass', '~> 3.3.4'
 
 
-  
+
 group :development, :test do
  # Use sqlite3 as the database for Active Record
   gem 'sqlite3'
-
 
 
 end
