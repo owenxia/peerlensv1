@@ -16,6 +16,11 @@
 #
 
 class Annotation < ActiveRecord::Base
+	searchable do
+		text :quote, :note
+	end	
+
+
 	acts_as_votable
 
 	belongs_to :user

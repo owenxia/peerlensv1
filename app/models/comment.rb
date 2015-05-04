@@ -16,6 +16,10 @@
 #
 
 class Comment < ActiveRecord::Base
+  searchable do
+	text :name, :body
+  end
+
   belongs_to :annotation
   belongs_to :user
 

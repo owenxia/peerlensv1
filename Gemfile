@@ -52,5 +52,7 @@ group :development, :test do
   gem 'acts_as_follower', '~> 0.2.1'
   #gem 'acts-as-taggable-on', '~> 3.5.0'
   gem 'simple_hashtag', '~> 0.1.9'
+  gem 'sunspot_rails', '~> 2.2.0'
+  gem 'sunspot_solr', '~> 2.2.0'
 end
 

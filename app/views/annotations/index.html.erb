@@ -1,5 +1,10 @@
 <h1>All Users' Annotations</h1>
 
+<%= form_tag annotations_path, method: :get do %>
+	<%= text_field_tag :search, params[:search] %><br>
+	<%= submit_tag "Search", name: nil %>
+<% end %>
+
 <% @annotations.each do |annotation| %>
 	<div class="annotation_wrapper">
 		<p><strong>Quote: </strong><%= annotation.quote %></p>
