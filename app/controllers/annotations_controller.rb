@@ -3,11 +3,11 @@ class AnnotationsController < ApplicationController
 	load_and_authorize_resource except: [:upvote, :downvote]
 
 	def index
-		@search = Annotation.solr_search do 
-			fulltext params[:search]
-		end
-		@annotations = @search.results
-		#@annotations = Annotation.all.order('created_at DESC')
+		# @search = Annotation.solr_search do 
+		# 	fulltext params[:search]
+		# end
+		# @annotations = @search.results
+		@annotations = Annotation.all.order('created_at DESC')
 
 	end
 
