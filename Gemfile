@@ -54,8 +54,8 @@ group :development, :test do
   gem 'simple_hashtag', '~> 0.1.9'
   gem 'sunspot_rails', '~> 2.2.0'
   gem 'sunspot_solr', '~> 2.2.0'
-
   gem 'omniauth-twitter', '~> 1.2.0'
+  gem 'activeadmin', github: 'activeadmin'
 
 end
 

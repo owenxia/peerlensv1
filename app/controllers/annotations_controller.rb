@@ -3,7 +3,7 @@ class AnnotationsController < ApplicationController
 	load_and_authorize_resource except: [:upvote, :downvote]
 
 	def index
-		@search = Annotation.search do 
+		@search = Annotation.solr_search do 
 			fulltext params[:search]
 		end
 		@annotations = @search.results
