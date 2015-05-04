@@ -56,53 +56,33 @@
 		</div><!--/.container-fluid -->
 	</nav>
 
-	<p class="notice"><%= notice %></p>
-	<p class="alert"><%= alert %></p>
 
+	<div class="alert alert-success" role="alert">
 
-	<p>
-		<% if user_signed_in? %> 
-			YOU: <%= current_user.email %>
-		<% end %>
-	</p>
-	<p>
-		MENU: 
-		<%= link_to 'All Users\' Annotations', annotations_path %> | 
-		<%= link_to 'External Page to Annotate', new_annotation_path %> | 
-		<%= link_to 'All Users\' Notebooks', notebooks_path %> |
-		<%= link_to 'Create a Notebook', new_notebook_path %> |
-		<%= link_to 'Top Content', top_path %> |
-		<%= link_to 'All Users', users_path %> |
-		<% if user_signed_in? %> 
-			<%= link_to 'Edit profile', edit_user_registration_path %> | 
-			<%= link_to 'Log out', destroy_user_session_path, method: :delete %>
-
-		<% else %>
-			<%= link_to 'Log in', new_user_session_path %> 
-		<% end %>
-		<% if !user_signed_in? %>
-			| <%= link_to 'Register', new_user_registration_path  %> 
-		<% end %>
-	<p>
-	<p>
-		SOCIAL SIGN-INS:
+		<p><%= notice %></p>
+		<p><%= alert %></p>
 		
-		<%=  %>
 
-		<% if session[:name] %>
-			<p>You're signed in as <%= session[:name] %></p>
-			<%= link_to 'Sign out', signout_path %>
-		<% else %>
-			<%= link_to 'Sign in with Twitter', '/auth/twitter' %>
-		<% end %>
+		<p>
+			<% if user_signed_in? %> 
+				<span class="glyphicon glyphicon-user"></span> <%= current_user.email %>
+			<% end %>
+		</p>
+		<p>
+			<span class="glyphicon glyphicon-lock"></span>
 
-	</p>
+			<% if session[:name] %>
+				<p>You're signed in as <%= session[:name] %></p>
+				<%= link_to 'Sign out', signout_path %>
+			<% else %>
+				<%= link_to 'Sign in with Twitter', '/auth/twitter' %>
+			<% end %>
 
+		</p>
+	</div>
 
 	<%= yield %>
 
-
-    <p class="lead">Use this document as a way to quickly start any new project.<br> All you get is this text and a mostly barebones HTML document.</p>
 
 
 </div><!-- container -->

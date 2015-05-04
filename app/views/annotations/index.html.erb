@@ -1,8 +1,8 @@
 <h1>All Users' Annotations</h1>
 
 <%= form_tag annotations_path, method: :get do %>
-	<%= text_field_tag :search, params[:search] %><br>
-	<%= submit_tag "Search", name: nil %>
+	<%= text_field_tag :search, params[:search] %>
+	<%= submit_tag "Search", name: nil, class: "btn btn-success" %>
 <% end %>
 
 <% @annotations.each do |annotation| %>
