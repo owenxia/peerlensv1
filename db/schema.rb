@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150503221311) do
+ActiveRecord::Schema.define(version: 20150504075611) do
 
   create_table "annotations", force: :cascade do |t|
     t.text     "quote"
@@ -86,6 +86,9 @@ ActiveRecord::Schema.define(version: 20150503221311) do
     t.string   "last_sign_in_ip"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "provider"
+    t.string   "uid"
+    t.string   "name"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true

@@ -16,4 +16,9 @@ class ApplicationController < ActionController::Base
   	redirect_to notauthorized_path
   end
 
+  # def social_user
+  #   @social_user = User.where(uid: session[:user_id]) if session[:user_id]
+  # end
+  # helper_method :social_user
+
 end
